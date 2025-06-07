@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web_Shop.Persistence.MySQL.Extensions;
-using Web_Shop.Persistence.Repositories;
-using Web_Shop.Persistence.Repositories.Interfaces;
+using Web_Shop.Persistence.UOW.Interfaces;
 
 namespace Web_Shop.Persistence.Extensions
 {
@@ -12,7 +11,7 @@ namespace Web_Shop.Persistence.Extensions
         {
             services.AddMySQLDbContext(configuration);
 
-            services.AddScoped(typeof(ICustomerRepository), typeof(CustomerRepository));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
         }
     }
 }
